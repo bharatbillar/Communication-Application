@@ -226,6 +226,26 @@ function refreshChat() {
   displayMessages();
 }
 
+// Modal Functions
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
+
+function showConfirmModal() {
+  const modal = document.getElementById("confirmModal");
+  modal.style.display = "block";
+}
+
+function confirmAction() {
+  if (confirmCallback) {
+    confirmCallback();
+    confirmCallback = null;
+  }
+}
+
 // User Management Functions
 function editUser(email) {
   const modal = document.getElementById("editUserModal");
@@ -372,26 +392,6 @@ function loadDocuments() {
             `;
       docTableBody.appendChild(row);
     });
-  }
-}
-
-// Modal Functions
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.style.display = "none";
-  }
-}
-
-function showConfirmModal() {
-  const modal = document.getElementById("confirmModal");
-  modal.style.display = "block";
-}
-
-function confirmAction() {
-  if (confirmCallback) {
-    confirmCallback();
-    confirmCallback = null;
   }
 }
 
